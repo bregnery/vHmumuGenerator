@@ -10,7 +10,7 @@
 #PBS -l nodes=1:ppn=1
 #PBS -t 1 
 
-cd /scratch/osg/bregnery/CMSSW_7_4_2/src/MCdata
+cd /scratch/osg/bregnery/CMSSW_7_4_2/src/vHmumuGenerator
 eval `scram runtime -sh`
 
 date
