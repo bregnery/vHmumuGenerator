@@ -4,6 +4,8 @@
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
 # with command line options: Configuration/Generator/python/Wh2mu_wh_M125GeV_13TeV_cfi.py --step GEN,SIM,DIGI,L1,DIGI2RAW,HLT:GRun,RAW2DIGI,L1Reco,RECO --pileup_input dbs:/MinBias_TuneA2MB_13TeV-pythia8/Fall13-POSTLS162_V1-v1/GEN-SIM --pileup AVE_20_BX_25ns --conditions PHYS14_25_V1 --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1 --magField 38T_PostLS1 --geometry Extended2015 --beamspot Realistic8TeVCollision --datatier GEN-SIM --mc --eventcontent AODSIM --python_filename h2mu_wh_M125GeV_13TeV_FULLSIM_cfg.py -n 10 --no_exec --fileout h2mu_wh_M125GeV_13TeV_pythia8_AODSIM_1.root
 import FWCore.ParameterSet.Config as cms
+import sys
+
 
 process = cms.Process('HLT')
 
@@ -83,7 +85,7 @@ process.AODSIMoutput = cms.OutputModule("PoolOutputModule",
         filterName = cms.untracked.string('')
     ),
     eventAutoFlushCompressedSize = cms.untracked.int32(15728640),
-    fileName = cms.untracked.string('h2mu_wh_M125GeV_13TeV_pythia8_AODSIM_1.root'),
+    fileName = cms.untracked.string(outputFile),
     outputCommands = process.AODSIMEventContent.outputCommands
 )
 
@@ -139,7 +141,7 @@ genSeed = 9987 + int(jobNum)
 
 #Generate event numbers
 process.source.firstRun = cms.untracked.uint32(int(jobNum))
-process.generator.first.Run = cms.untracked.uint32(int(jobNum))
+process.generator.firstRun = cms.untracked.uint32(int(jobNum))
 
 #Set the RNG seed for generation
 process.RandomNumberGeneratorService.generator.initialSeed = genSeed

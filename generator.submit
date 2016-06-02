@@ -1,16 +1,16 @@
 #! /bin/sh
 #PBS -r n
-#PBS -N ttHgen
-#PBS -o ttHgen.out
-#PBS -e ttHgen.err
-#PBS -m a
+#PBS -N vHgen
+#PBS -o vHgen.out
+#PBS -e vHgen.err
+#PBS -m ae
 #PBS -M bregnery@ufl.edu
-#PBS -l walltime=00:99:00:00
-#PBS -l pmem=9900mb
+#PBS -l walltime=00:11:00:00
+#PBS -l pmem=990mb
 #PBS -l nodes=1:ppn=1
-#PBS -t 1-1000 
+#PBS -t 1-2 
 
-cd /scratch/osg/bregnery/CMSSW_7_4_2/src/MCdata
+cd /scratch/osg/bregnery/CMSSW_7_4_2/src/vHmumuGenerator
 eval `scram runtime -sh`
 
 date

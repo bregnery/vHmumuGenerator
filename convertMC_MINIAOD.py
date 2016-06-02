@@ -29,9 +29,9 @@ process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring('stuff.root')
 )
 import glob
-ttHfiles = glob.glob("/scratch/osg/bregnery/CMSSW_7_4_2/src/vHmumuGenerator/h2mu_wh_M125GeV_13TeV_pythia8_AODSIM_1.root")
-ttHfiles = ["file:"+x for x in ttHfiles]
-process.source.fileNames = cms.untracked.vstring(ttHfiles)
+vHfiles = glob.glob("/scratch/osg/bregnery/CMSSW_7_4_2/src/vHmumuGenerator/h2mu_wh_M125GeV_13TeV_pythia8_AODSIM_1.root")
+vHfiles = ["file:"+x for x in vHfiles]
+process.source.fileNames = cms.untracked.vstring(vHfiles)
 
 process.options = cms.untracked.PSet(
     allowUnscheduled = cms.untracked.bool(True)
@@ -51,7 +51,7 @@ process.MINIAODSIMoutput = cms.OutputModule("PoolOutputModule",
     compressionAlgorithm = cms.untracked.string('LZMA'),
     eventAutoFlushCompressedSize = cms.untracked.int32(15728640),
     outputCommands = process.MINIAODSIMEventContent.outputCommands,
-    fileName = cms.untracked.string('vHmumu-MINIAOD-test.root'),
+    fileName = cms.untracked.string('wHmumu-MINIAOD-test.root'),
     dataset = cms.untracked.PSet(
         filterName = cms.untracked.string(''),
         dataTier = cms.untracked.string('')
