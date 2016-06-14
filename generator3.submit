@@ -1,0 +1,25 @@
+#! /bin/sh
+#PBS -r n
+#PBS -N vHgen
+#PBS -o vHgen.out
+#PBS -e vHgen.err
+#PBS -m ae
+#PBS -M bregnery@ufl.edu
+#PBS -l walltime=00:40:00:00
+#PBS -l pmem=1000mb
+#PBS -l nodes=1:ppn=1
+#PBS -t 2001-3000 
+
+cd /scratch/osg/bregnery/CMSSW_7_4_2/src/vHmumuGenerator
+eval `scram runtime -sh`
+
+date
+hostname
+pwd
+echo ${PBS_JOBID}
+echo ${PBS_ARRAYID}
+
+cmsRun h2mu_wh_M125GeV_13TeV_FULLSIM_cfg.py output=/scratch/osg/bregnery/CMSSW_7_4_2/src/vHmumuGenerator/wHmumu_${PBS_ARRAYID}.root job=${PBS_ARRAYID}
+
+date
+
