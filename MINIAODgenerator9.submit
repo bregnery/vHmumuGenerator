@@ -20,7 +20,7 @@ echo ${PBS_JOBID}
 echo ${PBS_ARRAYID}
 
 
-cmsRun convertMC_MINIAOD.py input=/scratch/osg/bregnery/CMSSW_7_4_2/src/ttHmumu/vHmumu_${PBS_ARRAYID}.root output=/scratch/osg/bregnery/CMSSW_7_4_2/src/ttHmumu/vHmumu-MINIAOD-${PBS_ARRAYID}.root
+cmsRun convertMC_MINIAOD.py input=/scratch/osg/bregnery/CMSSW_7_4_2/src/ttHmumu/wHmumu_${PBS_ARRAYID}.root output=/scratch/osg/bregnery/CMSSW_7_4_2/src/ttHmumu/wHmumu-MINIAOD-${PBS_ARRAYID}.root
 
 
 date

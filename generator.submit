@@ -6,7 +6,7 @@
 #PBS -m ae
 #PBS -M bregnery@ufl.edu
 #PBS -l walltime=00:11:00:00
-#PBS -l pmem=990mb
+#PBS -l pmem=9900mb
 #PBS -l nodes=1:ppn=1
 #PBS -t 1-2 
 
